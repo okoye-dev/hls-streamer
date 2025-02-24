@@ -22,8 +22,9 @@ COPY --from=builder /app/server /app/server
 COPY test /app/test
 COPY ffmpeg.sh /app/ffmpeg.sh
 
-# Ensure ffmpeg.sh has execution permission
-RUN chmod +x /app/ffmpeg.sh
+# Ensure correct line endings and permissions
+RUN sed -i 's/\r$//' /app/ffmpeg.sh && \
+    chmod +x /app/ffmpeg.sh
 
 EXPOSE 8080
 

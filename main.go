@@ -16,7 +16,7 @@ const (
 
 func convertVideo() error {
 	// Run FFmpeg script
-	cmd := exec.Command( "/bin/sh", "ffmpeg.sh", videoPath)
+	cmd := exec.Command("bash", "ffmpeg.sh", videoPath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd.Run()
